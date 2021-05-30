@@ -1,0 +1,107 @@
+header {
+    background-color: rgb(183, 188, 236);
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px;
+    font-family: "Helvetica Neue", Helvetica, Arial;
+    font-size: 24px;
+}
+
+nav {
+    color:cornsilk;
+    font-style: italic;
+    text-align: right;
+    word-spacing: 5px;
+}
+body {
+    font-family: "Helvetica, sans-serif";
+    margin: 20px 20px 20px 20px;
+
+}
+
+h2 {
+    color:rgb(97, 121, 228);
+    text-align: center;
+}
+
+footer {
+    border-style: outset;
+}
+
+.nav_links {
+    position: absolute;
+    font-family:"Roboto Slab", Helvetica;
+    font-style: italic;
+    left:50%;
+    top:80%;
+    transform: translate(-50%, -70%);
+}
+div > img {
+    padding-top: 10px;
+    border-radius: 10px;
+}
+
+li+li{
+    text-decoration: underline;
+}
+
+section p {
+    font-size: 16px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+p:hover {
+    background-color:rgb(209, 221, 220);
+}
+
+a:active {
+    background-color: rgb(199, 211, 30)
+}
+
+a:link {
+    color:rgb(82, 187, 135);
+    font-weight: bolder;
+}
+
+a:visited {
+    color:rgb(206, 27, 36);
+}
+
+.container {
+    position: relative;
+    text-align: center;
+    color: white
+}
+
+#welcome {
+    font-size: 2.5em;
+    font-weight: bolder;
+    text-shadow: 1px 1px 2px grey, 0 0 25px dodgerblue;
+}
+#review_header {
+    color:#FFFFFF;
+    font-size: 24px;
+    font-weight: bolder;
+}
+
+#abstract {
+    display: block;
+    height:500px;
+    width: 100%;
+    object-fit: fill;
+}
+
+#yelp_pic {
+    width: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#intro_vid {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
