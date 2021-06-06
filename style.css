@@ -1,3 +1,9 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
 header {
     background-color: rgb(183, 188, 236);
     padding-top: 20px;
@@ -14,19 +20,32 @@ nav {
     text-align: right;
     word-spacing: 5px;
 }
+
+div > img {
+    height: 240px;
+}
+
 body {
     font-family: "Helvetica, sans-serif";
     margin: 20px 20px 20px 20px;
-
 }
 
 h2 {
+    font-style: italic;
     color:rgb(97, 121, 228);
     text-align: center;
+    padding: 40px;
 }
 
 footer {
+    margin: 20px 20px;
+    padding: 10px 10px;
+    padding-bottom: 40px;
     border-style: outset;
+}
+
+footer p, a {
+    font-size: 20px;
 }
 
 .nav_links {
@@ -37,13 +56,10 @@ footer {
     top:80%;
     transform: translate(-50%, -70%);
 }
+
 div > img {
     padding-top: 10px;
-    border-radius: 10px;
-}
-
-li+li{
-    text-decoration: underline;
+    border-radius: 40px;
 }
 
 section p {
@@ -53,32 +69,72 @@ section p {
 }
 
 p:hover {
-    background-color:rgb(209, 221, 220);
+    background-color:rgb(168, 226, 221);
 }
 
 a:active {
-    background-color: rgb(199, 211, 30)
+    background-color: rgb(131, 63, 196)
 }
 
 a:link {
-    color:rgb(82, 187, 135);
+    text-decoration: none;
+    color:rgb(55, 128, 90);
     font-weight: bolder;
 }
 
 a:visited {
-    color:rgb(206, 27, 36);
+    color:rgb(214, 101, 107);
 }
 
-.container {
+ul {
+    text-align: center;
+    list-style: none;
+}
+
+li::before {
+content: "•";
+padding-top: 10px;
+color: rgb(201, 73, 56);
+display: inline-block;
+width: 1em;
+}
+
+.header_container {
     position: relative;
     text-align: center;
-    color: white
+    color: white;
 }
 
+.gallery-resize {
+    width: 20vw;
+}
+
+.grid_images {
+    display: grid;
+    grid-template-columns: repeat(2, 20vw);
+    justify-content: center;
+    column-gap: 10px;
+}
+
+.grid_container_abtus {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-rows: 300px;
+    grid-template-columns: 20vw 20vw;
+    column-gap: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_list {
+    text-decoration: none;
+}
+
+/* ~~~ID SELECTORS~~~ */
 #welcome {
     font-size: 2.5em;
     font-weight: bolder;
-    text-shadow: 1px 1px 2px grey, 0 0 25px dodgerblue;
+    text-shadow: 1px 1px 2px grey, 0 0 15px dodgerblue, 0 0 30px dodgerblue;
 }
 #review_header {
     color:#FFFFFF;
@@ -100,8 +156,26 @@ a:visited {
     margin-right: auto;
 }
 
+#intro_section {
+    margin: 40px 0;
+    background-image: url(Pictures/pizzaBanner.jpg);
+    background-position: 50% 50%;
+    background-size: 100%;
+}
+
 #intro_vid {
+    border: 5px groove;
+    padding: 10px 10px;
+    border-radius: 25px;
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+
+#abt_us_piece {
+    padding: 5px 5px;
+}
+
+#list_heading {
+    padding: initial;
 }
