@@ -1,52 +1,5 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    background-color: rgb(183, 188, 236);
-    padding-top: 20px;
-    padding-left: 10px;
-    padding-bottom: 20px;
-    padding-right: 10px;
-    font-family: "Helvetica Neue", Helvetica, Arial;
-    font-size: 18px;
-}
-
-nav {
-    color:cornsilk;
-    padding-right: 43vw;
-    font-style: italic;
-    text-align: right;
-    word-spacing: 5px;
-}
-
-div > img {
-    height: 240px;
-}
-
-body {
-    font-family: "Helvetica, sans-serif";
-    margin: 20px 20px 20px 20px;
-}
-
-h2 {
-    font-style: italic;
-    color:rgb(97, 121, 228);
-    text-align: center;
-    padding: 40px;
-}
-
-footer {
-    margin: 20px 20px;
-    padding: 10px 10px;
-    padding-bottom: 40px;
-    border-style: outset;
-}
-
-footer p, a {
-    font-size: 14px;
-}
+@import '_pizzaVariables';
+@import '_generalRules';
 
 div > img {
     padding-top: 10px;
@@ -55,24 +8,10 @@ div > img {
 
 section p {
     font-size: 12px;
-}
 
-p:hover {
-    background-color:rgb(168, 226, 221);
-}
-
-a:active {
-    background-color: rgb(131, 63, 196)
-}
-
-a:link {
-    text-decoration: none;
-    color:rgb(55, 128, 90);
-    font-weight: bolder;
-}
-
-a:visited {
-    color:rgb(214, 101, 107);
+    p:hover {
+        background-color:rgb(168, 226, 221);
+    }
 }
 
 ul {
@@ -92,6 +31,30 @@ width: 1em;
     position: relative;
     text-align: center;
     color: white;
+
+    div {
+        position: absolute;
+        font-size: 2.5em;
+        font-weight: bolder;
+        text-shadow: 1px 1px 2px grey, 0 0 15px dodgerblue, 0 0 30px dodgerblue;
+        font-family:"Roboto Slab", Helvetica;
+        font-style: italic;
+        left:50%;
+        top:80%;
+        transform: translate(-50%, -70%);
+    }
+    
+    img {
+        display: block;
+        height:500px;
+        width: 100%;
+        object-fit: fill;
+    }
+
+    &:hover {
+        box-shadow: 5px 5px 7px red;
+        border-radius: 30px;
+    }
 }
 
 div > h2 {
@@ -103,35 +66,29 @@ div > h2 {
 .review_container {
     display: grid;
     padding: 10px, 0;
-    grid-template-columns: 1fr .3fr .3fr .3fr .3fr 1fr;
-    grid-template-rows: 80px 80px;
-}
+    grid-template-columns: $colSize $colSize*1/3 $colSize*1/3 $colSize*1/3 $colSize*1/3 $colSize;
+    grid-template-rows: $rowSize $rowSize;
 
-.review_container > h2 {
-    grid-column: 1/7;
-}
-
-.review_container > img {
-    padding-left: 60px;
-    height: 70px;
-    width: 4vw;
-    grid-column: 1 / span 3;
-    grid-row: 2 / 3;
-}
-
-.review_container a {
-    justify-self: start;
-    grid-column: 2 / span 7;
-    grid-row: 2 / 3;
+    h2 {
+        grid-column: 1/7;
+    }
+    
+    img {
+        height: 70px;
+        width: 4vw;
+        grid-column: 1 / span 3;
+        grid-row: 2 / 3;
+    }
+    
+    a {
+        justify-self: center;
+        grid-column: 1 / span 6;
+        grid-row: 2 / span 2;
+    }
 }
 
 .grid_images_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-auto-rows: 40vh;
-    column-gap: 2vh;
-    justify-content: center;
-    align-items: center;
+    @include GridFitColumns(0.6);
 }
 
 .grid_images_container > img {
@@ -148,7 +105,7 @@ img:nth-child(1), img:nth-child(3) {
     max-height: 400px;
     grid-auto-flow: column;
     grid-auto-rows: 300px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: $colSize $colSize;
     column-gap: 5px;
     justify-content: center;
     align-items: center;
@@ -162,32 +119,12 @@ img:nth-child(1), img:nth-child(3) {
 
 .gallery_animate {
     filter: grayscale(100%);
-    filter:grayscale();
     transition-duration: 1.5s;
     transition-timing-function: ease-out;
 }
 
 .gallery_animate:hover {
     filter: grayscale(0%);
-}
-
-#welcome_title {
-    position: absolute;
-    font-size: 2.5em;
-    font-weight: bolder;
-    text-shadow: 1px 1px 2px grey, 0 0 15px dodgerblue, 0 0 30px dodgerblue;
-    font-family:"Roboto Slab", Helvetica;
-    font-style: italic;
-    left:50%;
-    top:80%;
-    transform: translate(-50%, -70%);
-}
-
-#main_bg {
-    display: block;
-    height:500px;
-    width: 100%;
-    object-fit: fill;
 }
 
 #yelp_pic {
@@ -217,16 +154,8 @@ img:nth-child(1), img:nth-child(3) {
     padding: initial;
 }
 
-@keyframes InfiniteSpectrum {
-    0% {color: red;}
-    20% {color: rgb(221, 235, 31);}
-    40% {color: rgb(99, 206, 27);}
-    60% {color: rgb(28, 186, 207);}
-    80% {color: rgb(72, 27, 197);}
-    100% {color: rgb(0, 110, 255);}
-}
-
 #spectrum {
+    @include rotatingColors();
     animation-name: InfiniteSpectrum;
     animation-duration: 2s;
     animation-timing-function: linear;
@@ -236,30 +165,24 @@ img:nth-child(1), img:nth-child(3) {
 #fast_forward {
     visibility: hidden;
 }
+
+
 /* Media query for tablets */
 @media only screen and (min-width: 7in) {
     header, footer p, a, h2 {
-        font-size: 1.2rem;
+        @include FontChg(1.4rem, bold);
     }
+    
     section p, div > h2 {
         font-size: 1.2rem;
     }
 
     .grid_images_container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    }
-
-    @keyframes BouncingArrow {
-        0% {left:0vw; right: 0px;}
-        20% {left: 1vw; right: 0px;}
-        40% {left: 1vw; right: 0px;}
-        50% {left: 1vw; right: 2px;}
-        60% {left:0vw; right: 1vw;}
-        80% {left:0vw; right: 0vw}
-        100% {left: 0vw; right: 0vw;}
+        grid-template-columns: $columnFit;
     }
 
     #fast_forward {
+        @include BouncingArrow();
         position: relative;
         visibility: visible;
         animation-name: BouncingArrow;
@@ -283,17 +206,20 @@ img:nth-child(1), img:nth-child(3) {
     }
 }
 
+
 /* Media query for desktop */
 @media only screen and (min-width: 1000px) {
+    
     header, footer p, a, h2 {
-        font-size: 1.4rem;
+        @include FontChg(1.6rem, bold);
     }
+
     div > h2 {
         font-size: 1.4rem;
     }
 
     .grid_images_container {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-template-columns: $columnFit;
         margin: 0 15vw;
     }
 
@@ -301,17 +227,9 @@ img:nth-child(1), img:nth-child(3) {
         height: 80vh;
     }
     
-    @keyframes BouncingArrow {
-        0% {left:0vw; right: 0px;}
-        20% {left: 1vw; right: 0px;}
-        40% {left: 1vw; right: 0px;}
-        50% {left: 1vw; right: 2px;}
-        60% {left:0vw; right: 1vw;}
-        80% {left:0vw; right: 0vw}
-        100% {left: 0vw; right: 0vw;}
-    }
-
+    
     #fast_forward {
+        @include BouncingArrow();
         position: relative;
         animation-name: BouncingArrow;
         animation-duration: 2s;

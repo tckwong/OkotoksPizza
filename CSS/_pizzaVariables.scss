@@ -1,0 +1,52 @@
+$colSize: 1fr;
+$rowSize: 80px;
+$minGridSize: 250px;
+$columnFit: repeat(auto-fit, minmax(250px, $colSize));
+$fntSize: 1rem;
+$fontTypeStyle: normal;
+
+@mixin rotatingColors() {
+    @keyframes InfiniteSpectrum {
+        0% {color: red;}
+        20% {color: rgb(221, 235, 31);}
+        40% {color: rgb(99, 206, 27);}
+        60% {color: rgb(28, 186, 207);}
+        80% {color: rgb(72, 27, 197);}
+        100% {color: rgb(0, 110, 255);}
+    }
+}
+
+@mixin BouncingArrow() {
+    @keyframes BouncingArrow {
+        0% {left:0vw; right: 0px;}
+        20% {left: 1vw; right: 0px;}
+        40% {left: 1vw; right: 0px;}
+        50% {left: 1vw; right: 2px;}
+        60% {left:0vw; right: 1vw;}
+        80% {left:0vw; right: 0vw}
+        100% {left: 0vw; right: 0vw;}
+    }
+}
+
+@mixin GridFitColumns($minGridSize) {
+    display: grid;
+    grid-auto-rows: 40vh;
+    grid-template-columns: repeat(auto-fit, minmax($minGridSize, $colSize));
+    column-gap: 2vh;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin FontChg($fntSize, $fontTypeStyle) {
+    font-size: $fntSize;
+    font-weight: $fontTypeStyle;
+}
+
+body {
+    counter-reset: nav_list;
+  }
+
+li::before {
+    counter-increment: nav_list;
+    content: "Item " counter(nav_list);
+}
